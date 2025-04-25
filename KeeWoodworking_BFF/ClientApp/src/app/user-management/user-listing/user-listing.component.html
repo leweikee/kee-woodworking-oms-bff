@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <div nz-row [nzGutter]="[0, 16]">
+    <div nz-col nzSpan="24" style="text-align: right;">
+      <nz-icon nzType="plus-circle" nzTheme="fill" class="nz-icon-large"></nz-icon>
+    </div>
+  </div>
+
+  <nz-table [nzData]="userList" [nzPageSize]="10" [nzTotal]="userList.length" [nzShowPagination]="true">
+    <thead>
+      <tr>
+        <th>No</th>
+        <th *ngFor="let col of columns">{{ col.header }}</th>
+        <th class="text-center">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of userList; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td *ngFor="let col of columns">
+          <ng-container [ngSwitch]="col.field">
+            <ng-container *ngSwitchCase="'ROLE_DESC'"><span>{{ row[col.field] }}</span></ng-container>
+            <ng-container *ngSwitchCase="'PHONE_NO'"><span>{{ row[col.field] }}</span></ng-container>
+            <ng-container *ngSwitchDefault>{{ row[col.field] }}</ng-container>
+          </ng-container>
+        </td>
+        <td class="text-center">
+          <nz-icon nzType="edit" nzTheme="outline" />
+          <nz-icon nzType="delete" nzTheme="outline" />
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
