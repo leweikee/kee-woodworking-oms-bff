@@ -4,7 +4,7 @@
 		<TargetFramework>net8.0</TargetFramework>
 		<Nullable>enable</Nullable>
 		<ImplicitUsings>enable</ImplicitUsings>
-		<RootNamespace>kee_woodworking</RootNamespace>
+		<RootNamespace>KeeWoodworking_BFF</RootNamespace>
 	</PropertyGroup>
 
 	<ItemGroup>
